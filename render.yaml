@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: jmtalec
+    runtime: python
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py collectstatic --noinput
+    startCommand: gunicorn jmtalec.wsgi
+    postDeployCommand: |
+      python manage.py migrate
+      echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.filter(username='admin').exists() or User.objects.create_superuser('admin', 'admin@example.com', 'securepassword')" | python manage.py shell
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: jmtalec-website-database
+          property: connectionString
+
+databases:
+  - name: jmtalec-website-database
+    databaseName: jmtalecdb
+    user: admin
+
