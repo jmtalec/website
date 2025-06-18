@@ -25,7 +25,9 @@ SECRET_KEY = "django-insecure-!gqsy+^mxz=d7t*0qn*d^3k)v5!6z4=%tdhu$d%=pm9*)#)%tu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "jmtalec.onrender.com",
+]
 
 
 # Application definition
@@ -67,7 +69,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "jmtalec.wsgi.application"
-
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
