@@ -6,5 +6,10 @@ from django.http import HttpResponse
 def home(request):
     context = {
         "title" : "🫎 Jean Moïse TALEC's Website",
+        "navbar" : [
+            ("ExpressMpeg", "expressmpeg.home"),
+            ("Vizysound", "vizysound.home"),
+            ("Lambda Course", "lambda_course.home"),
+        ],
     }
     return render(request, "main/home.html", context)
