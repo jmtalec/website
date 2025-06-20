@@ -4,5 +4,7 @@ from django.http import HttpResponse
 # Create your views here.
 
 def home(request):
-    context = {}
+    context = {
+        "title" : "🫎 Jean Moïse TALEC's Website",
+    }
     return render(request, "main/home.html", context)
