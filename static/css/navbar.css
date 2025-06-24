@@ -1,0 +1,104 @@
+body {
+    margin: 0;
+}
+
+nav {
+    background-color: rgb(255, 246, 230);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 3px 15px;
+    border-style: none none dotted none;
+    border-width: 2px;
+    border-color: rgb(58, 58, 58);
+}
+
+.projectbar {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0px 15px;
+    margin-right: auto;
+}
+
+.socialbar {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.sociallink {
+    color: rgb(50, 50, 50);
+    font-family: "Unkempt", cursive;
+    font-weight: 700;
+    font-size: larger;
+    font-style: normal;
+    position: relative;
+    text-decoration: none;
+}
+
+.sociallink:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+
+nav a {
+    position: relative;
+    text-decoration: none;
+    color: rgb(50, 50, 50);
+    font-family: "Courier Prime", monospace;
+}
+
+.logo {
+    position: relative;
+    text-decoration: none;
+    color: rgb(50, 50, 50);
+    font-family: "Courier Prime", monospace;
+}
+
+.logo:hover{
+    color: rgb(113, 125, 35);
+}
+
+.socialicon {
+  /* This pushes it to the right */
+  display: flex;
+  align-items: center;
+  color: #34373a;
+}
+
+.blink {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.project {
+    overflow: hidden;
+    z-index: 1;
+    position: relative;
+    padding: 1px 2px 1px 2px;
+    color: inherit;
+}
+
+.project::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background: rgb(155, 136, 165);
+    border-radius: 2px;
+    transition: transform 0.2s ease, background 0.2s ease, width 0.3s ease;
+    z-index: -1;
+}
+
+.project:hover::before {
+    width: 100%;
+}
+

@@ -1,27 +1,82 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="/static/css/navbar.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=IM+Fell+English:ital@0;1&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&&family=Unkempt:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>{{ title }}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-{% include 'navbar.html' %}
-    
-{% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
-    
-{% block content %}
-
-{% endblock %}
-</body>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% block head %}
+    {% endblock %}
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+    <div> {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      <div
+        data-node-id="IFP9zvuzur1lszAMgQdF0"
+        data-id="0.0.0.0"
+        data-component="Test"
+        class="ZcXvr"
+      >
+        <svg
+          data-node-id="NQ9a0jeANuRSpqSOfJ2nz"
+          data-id="0.0.0.0.0"
+          data-component="Test"
+          class="ftaNwg"
+          fill="none"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+          height="24"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            data-node-id="fHfJtXSEpyZ8v_fkroW58"
+            data-id="0.0.0.0.0.0"
+            data-component="Test"
+            class="ftaNwg"
+            d="M5 12h14M5 12l4-4m-4 4 4 4"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+        </svg>
+        <p
+          data-node-id="z0hz2E6v_yY21x6qAK9pY"
+          data-id="0.0.0.0.1"
+          data-component="Test"
+          class="bNPvVU"
+        >
+          <span
+            data-node-id="6z_gtbfZxedo5qXQ-lr5K"
+            data-id="0.0.0.0.1.0"
+            data-component="Test"
+            data-node-type="text"
+            >Delete the 2nd element from the top in the left panel to clear this
+            project<br
+          /></span>
+        </p>
+      </div>
+      {% endfor %}
+    </ul>
+    {% endif %} 
+    {% block content %} 
+    {% endblock %}
+    </div>
+  </body>
 </html>

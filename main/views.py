@@ -9,7 +9,7 @@ def home(request):
         "navbar" : [
             ("ExpressMpeg", "expressmpeg.home"),
             ("Vizysound", "vizysound.home"),
-            ("Lambda Course", "lambda_course.home"),
+            ("Lambda_Course", "lambda_course.home"),
         ],
     }
     return render(request, "main/home.html", context)
