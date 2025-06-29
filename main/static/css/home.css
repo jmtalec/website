@@ -1,22 +1,26 @@
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
-  .button {
-    display: inline-block;
-    color: black;
-    border: solid medium black; 
-    border-radius: 10px;
-    padding: 20px;
-    text-decoration: none;
-    box-shadow: 0 5px 0 0 black;
-    transition: 
-      background-color 0.3s ease,
-      transform 0.2s ease,
-      box-shadow 0.2s ease;
-    cursor: pointer;
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 15px;
+}
 
-  }
 
-  .button:hover {
-      background-color: rgb(238, 238, 238);
-      transform: translateY(3px);          /* Moves button down slightly */
-      box-shadow: 0 2px 0 0 black;
-  }
+article {
+    background-color: gray;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.dotted_background {
+  padding: 93px 0 93px 0;
+  background-image: url("/static/svg/background.svg");
+  background-repeat: repeat-x;
+}

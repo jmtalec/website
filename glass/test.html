@@ -1,0 +1,63 @@
+<button onclick="startRecording()">Start</button>
+<button onclick="stopRecording()">Stop</button>
+<div id="targetElement" style="width:200px;height:200px;background:red;animation: pulse 1s infinite;"></div>
+
+<style>
+@keyframes pulse {
+  0% { transform: scale(1); background: red; }
+  50% { transform: scale(1.1); background: orange; }
+  100% { transform: scale(1); background: red; }
+}
+</style>
+
+<script>
+let recorder, chunks = [];
+
+async function startRecording() {
+  const element = document.getElementById('targetElement');
+  const stream = await captureElementStream(element);
+  
+  recorder = new MediaRecorder(stream, { mimeType: 'video/webm' });
+
+  recorder.ondataavailable = e => chunks.push(e.data);
+  recorder.onstop = () => {
+    const blob = new Blob(chunks, { type: 'video/webm' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'capture.webm';
+    a.click();
+    chunks = [];
+  };
+
+  recorder.start();
+}
+
+function stopRecording() {
+  if (recorder && recorder.state !== 'inactive') {
+    recorder.stop();
+  }
+}
+
+function captureElementStream(element) {
+  const canvas = document.createElement('canvas');
+  const rect = element.getBoundingClientRect();
+  canvas.width = rect.width;
+  canvas.height = rect.height;
+  const ctx = canvas.getContext('2d');
+
+  return new Promise(resolve => {
+    function drawFrame() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(element, 0, 0, canvas.width, canvas.height); // fallback for canvas-renderable elements
+      requestAnimationFrame(drawFrame);
+    }
+
+    html2canvas(element).then(() => {
+      drawFrame();
+      const stream = canvas.captureStream(30); // 30 FPS
+      resolve(stream);
+    });
+  });
+}
+</script>
