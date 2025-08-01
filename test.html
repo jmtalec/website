@@ -1,0 +1,43 @@
+<style>
+.font-transition {
+  position: relative;
+  font-family: 'Arial', sans-serif;
+  color: transparent; /* Hide the base text */
+  cursor: pointer;
+  display: inline-block;
+}
+
+.font-transition::before,
+.font-transition::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: opacity 0.5s ease;
+  color: black;
+  pointer-events: none;
+}
+
+.font-transition::before {
+  font-family: 'Arial', sans-serif;
+  opacity: 1;
+}
+
+.font-transition::after {
+  font-family: 'Georgia', serif;
+  opacity: 0;
+}
+
+.font-transition:hover::before {
+  opacity: 0;
+}
+
+.font-transition:hover::after {
+  opacity: 1;
+}
+
+
+</style>
+
+<div class="font-transition" data-text="Hover me">Hover me</div>

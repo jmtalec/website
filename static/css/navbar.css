@@ -1,15 +1,12 @@
-body {
-    margin: 0;
-}
 
-nav {
+.navbar {
     background-color: rgb(255, 246, 230);
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: 3px 15px;
+    padding: 5px 15px;
     border-style: none none dotted none;
-    border-width: 2px;
+    border-width: 3px;
     border-color: rgb(58, 58, 58);
 }
 
@@ -21,53 +18,58 @@ nav {
     margin-right: auto;
 }
 
-.socialbar {
+.navbar .socialbar {
     display: flex;
     align-items: center;
     gap: 1.5rem;
 }
 
-.sociallink {
+.navbar .sociallink {
     color: rgb(50, 50, 50);
-    font-family: "Unkempt", cursive;
-    font-weight: 700;
-    font-size: larger;
+    font-family: "Courier Prime", monospace;
+    font-weight: 400;
     font-style: normal;
     position: relative;
+}
+
+.navbar .underline{
     text-decoration: none;
+    transition: color 0.1s ease;
 }
 
-.sociallink:hover {
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
+.navbar .underline:hover {
+    color:rgb(113, 125, 35);
 }
 
-nav a {
+.navbar a {
     position: relative;
     text-decoration: none;
     color: rgb(50, 50, 50);
     font-family: "Courier Prime", monospace;
 }
 
-.logo {
+.navbar .logo {
     position: relative;
     text-decoration: none;
+    transition: color 0.19s ease;
     color: rgb(50, 50, 50);
     font-family: "Courier Prime", monospace;
+    font-size: 22px;
+    font-weight:bolder;
 }
 
-.logo:hover{
+.navbar .logo:hover{
     color: rgb(113, 125, 35);
 }
 
-.socialicon {
+.navbar .socialicon {
   /* This pushes it to the right */
   display: flex;
   align-items: center;
   color: #34373a;
 }
 
-.blink {
+.navbar .blink {
   animation: blinker 1s linear infinite;
 }
 
